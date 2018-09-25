@@ -1,0 +1,36 @@
+.Container3 {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #fff;
+  /* background-color: #ffa38b; */
+  background-image: linear-gradient(#f992a6, #fa9);
+  height: 100vh;
+}
+
+.title .container3_title {
+  font-size: 7vh;
+  padding: 10px;
+  color: #ffffff;
+}
+
+.container3_content {
+  color: #ffffff;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.container3_content .row {
+  height: 50%;
+}
+
+.container3_content .title {
+  font-size: 4vh;
+}
+
+.container2_content img {
+  height: 50%;
+  width: 50%;
+  padding: 0;
+}
+

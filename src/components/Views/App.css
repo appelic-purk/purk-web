@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+  height:100%;
+  width:100%; 
+
+  font-family: 'Proxima Nova';
+}
+
+.title {
+    font-family: 'Questrial';
+}
+
+html, body { 
+    /* The image used */
+    /* background-image: url('./../../images/City.png'); */
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: 'Proxima Nova'; /*a name to be used later*/
+    src: url('./../../fonts/Proxima Nova Reg.ttf'); /*URL to font*/
+}
+
+@font-face {
+    font-family: 'Questrial'; /*a name to be used later*/
+    src: url('./../../fonts/Questrial-Regular.ttf'); /*URL to font*/
+}

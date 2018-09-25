@@ -1,0 +1,28 @@
+.Container4 {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #fff;
+
+  background: 
+    linear-gradient(
+      rgba(119, 119, 119, 0.6), 
+      rgba(119, 119, 119, 0.6) 
+    ),
+    url('./../../../../images/roadtrip.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 75vh;
+  background-position: 50% 85%;
+}
+
+.title .container4_title {
+  font-size: 7vh;
+  padding: 10px;
+  color: #ffffff;
+}
+
+.container4_content {
+  color: #ffffff;
+  font-size: 3vh;
+}
