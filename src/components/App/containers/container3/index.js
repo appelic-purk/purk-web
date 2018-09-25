@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import Button from "@material-ui/core/Button";  
 import creative from "./../../../../images/icons/creative.png";
+import garage from "./../../../../images/icons/garage.png";
 import './index.css';
 
 class Container3 extends Component {
     render() {
         return <div id="parent" className="Container3">
-            <div className="title">
-              <div className="container3_title">
-                <p>It's time to say goodbye to stressful parking</p>
+            <div className="row1">
+              <div className="title">
+                <div className="container3_title">
+                  <p>It's time to say goodbye to stressful parking</p>
+                </div>
               </div>
             </div>
-              <div className="container3_content">
-                <div className="row" style={{ textAlign: "left" }}>
+            <div className="row2">
+            <div className="container3_content">
+              <div className="row" style={{ textAlign: "left" }}>
+                <img src={creative} />
+                <div>
                   <div className="title">Park Smarter</div>
                   <p>
                     There’s two types of people in this world: those who
@@ -20,13 +26,17 @@ class Container3 extends Component {
                     community-based parking app that facilitates
                     communication between the two. With Purk, you can
                     effortlessly make money off of your unused parking
-                    spot. Whether you’re going to an event, traveling, or
-                    just tired of fighting for a spot, Purk finds you
-                    parking — without the time and stress. Listing a spot
-                    on Purk is easy, and renting one is even easier.
+                    spot. Whether you’re going to an event, traveling,
+                    or just tired of fighting for a spot, Purk finds you
+                    parking — without the time and stress. Listing a
+                    spot on Purk is easy, and renting one is even
+                    easier.
                   </p>
                 </div>
-                <div className="row" style={{ textAlign: "left" }}>
+              </div>
+              <div className="row" style={{ textAlign: "left" }}>
+                <img src={garage} />
+                <div>
                   <div className="title">Our Vision</div>
                   <p>
                     Our mission is to make parking inexpensive and
@@ -38,7 +48,9 @@ class Container3 extends Component {
                   </p>
                 </div>
               </div>
-          </div>;
+            </div>
+          </div>
+        </div>;
     }
 }
 
