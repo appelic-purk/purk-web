@@ -1,0 +1,24 @@
+.Container7 {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  color: #fff;
+  background-image: radial-gradient(#f992a6, #fa9);
+  min-height: 100%;
+  padding: 1%;
+  align-items: center;
+}
+
+.Container7_title {
+  font-size: 10vh;
+}
+
+.Container7 .col1 {
+  width: 50%;
+}
+
+.Container7 .col2 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
