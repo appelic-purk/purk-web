@@ -43,7 +43,7 @@ class Container2 extends Component {
                 </div>
                 <div className="row" style={{ textAlign: "right" }}>
                   <div>
-                    <img className="img" src={charging} style={{ float: "right" }} />
+                    <img className="img" src={charging} style={{ float: "right", paddingLeft: "3%" }} />
                   </div>
                   <div>
                     <p>

@@ -1,6 +1,6 @@
 .Container4 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   overflow: hidden;
   color: #fff;
 
@@ -12,17 +12,49 @@
     url('./../../../../images/roadtrip.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 75vh;
+  min-height: 75vh;
+  text-align: left;
   background-position: 50% 85%;
+}
+
+.Container4 .col1 {
+  flex: 2;
+}
+
+.Container4 .col2 {
+  flex: 1;
 }
 
 .title .container4_title {
   font-size: 7vh;
   padding: 10px;
   color: #ffffff;
+  flex: 1;
+  text-align: center;
 }
 
 .container4_content {
+  display: flex;
+  flex-direction: column;
   color: #ffffff;
   font-size: 3vh;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.container4_content .row {
+  /* height: 50%; */
+  padding-bottom: 3%;
+  display: flex;
+  flex-direction: row;
+}
+
+.container4_content .row_title {
+  width: 100%;
+}
+
+.Container4 .img {
+  width: 10%;
+  height: 10%;
+  padding: 1%;
 }

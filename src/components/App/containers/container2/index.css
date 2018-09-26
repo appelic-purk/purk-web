@@ -20,8 +20,8 @@
 .container2_content {
   flex-grow: 5;
   color: #777777;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 .container2_content .rows {
@@ -40,7 +40,6 @@
 }
 
 .container2_content .img {
-  height: 10%;
-  width: 10%;
-  padding: 10;
+  height: 12%;
+  width: 12%;
 }

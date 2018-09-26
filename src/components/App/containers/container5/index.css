@@ -1,6 +1,6 @@
 .Container5 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   overflow: hidden;
   color: #fff;
 
@@ -12,17 +12,50 @@
     url('./../../../../images/parking_spot.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 75vh;
+  min-height: 75vh;
   background-position: 50% 0%;
+  text-align: left;
+}
+
+.Container5 .col1 {
+  flex: 1;
+}
+
+.Container5 .col2 {
+  flex: 2;
 }
 
 .title .container5_title {
   font-size: 7vh;
   padding: 10px;
   color: #ffffff;
+  flex: 1;
+  text-align: center;
 }
 
 .container5_content {
+  display: flex;
+  flex-direction: column;
   color: #ffffff;
   font-size: 3vh;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.container5_content .row {
+  /* height: 50%; */
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+}
+
+.container5_content .row_title {
+  width: 100%;
+}
+
+.Container5 .img {
+  width: 10%;
+  height: 10%;
+  padding: 0;
+  padding-right: 2%;
 }
