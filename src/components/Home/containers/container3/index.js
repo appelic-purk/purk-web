@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from "@material-ui/core/Button";  
-import creative from "./../../../../images/icons/creative.png";
-import garage from "./../../../../images/icons/garage.png";
+import OurVision from "./../../../../images/icons/lightbulb-border.png";
+import ParkSmarter from "./../../../../images/icons/park-border.png";
 import './index.css';
 
 class Container3 extends Component {
@@ -17,7 +17,7 @@ class Container3 extends Component {
             <div className="row2">
             <div className="container3_content">
               <div className="row" style={{ textAlign: "left" }}>
-                <img src={creative} />
+                <img src={ParkSmarter} />
                 <div>
                   <div className="title">Park Smarter</div>
                   <p>
@@ -35,7 +35,7 @@ class Container3 extends Component {
                 </div>
               </div>
               <div className="row" style={{ textAlign: "left" }}>
-                <img src={garage} />
+                <img src={OurVision} />
                 <div>
                   <div className="title">Our Vision</div>
                   <p>

@@ -9,7 +9,7 @@ class Container5 extends Component {
   render() {
     return <div className="Container5">
         <div className="col1">
-          <p>hello world</p>
+          <p></p>
         </div>
         <div className="col2">
           <div className="title">

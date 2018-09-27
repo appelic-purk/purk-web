@@ -12,7 +12,7 @@ class Container1 extends Component {
             <p className="text">Find your sweet spot.</p>
             </div>
           </div>
-          <div className="rightCol">Right</div>
+          <div className="rightCol"></div>
         </div>;
       </div>;
   }

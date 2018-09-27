@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import timer from "./../../../../images/icons/timer-salmon.png";
-import moneybag from "./../../../../images/icons/money-bag-salmon.png";
-import charging from "./../../../../images/icons/charging.png";
+import timer from "./../../../../images/icons/timer-mix.png";
+import moneybag from "./../../../../images/icons/money-coins.png";
+import charging from "./../../../../images/icons/car-gas.png";
 import './index.css';
 
 class Container2 extends Component {

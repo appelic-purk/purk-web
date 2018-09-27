@@ -40,7 +40,7 @@ class Container4 extends Component {
           </div>
         </div>
         <div className="col2">
-          <p>hello world</p>
+          <p></p>
         </div>
       </div>;
   }

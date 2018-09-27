@@ -26,10 +26,10 @@ html, body {
 
 @font-face {
     font-family: 'Proxima Nova'; /*a name to be used later*/
-    src: url('./../../fonts/Proxima Nova Reg.ttf'); /*URL to font*/
+    src: url('./fonts/Proxima Nova Reg.ttf'); /*URL to font*/
 }
 
 @font-face {
     font-family: 'Questrial'; /*a name to be used later*/
-    src: url('./../../fonts/Questrial-Regular.ttf'); /*URL to font*/
+    src: url('./fonts/Questrial-Regular.ttf'); /*URL to font*/
 }

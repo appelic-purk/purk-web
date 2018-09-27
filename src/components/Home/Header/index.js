@@ -9,6 +9,8 @@ import Flexbox from 'flexbox-react';
 import './index.css';
 import Logo from './../../../images/PurkLogoSalmon.png'
 import SearchBar from "material-ui-search-bar";
+import history from './../../../history/history';
+import { Link } from 'react-router-dom';
 
 const theme = createMuiTheme({
     palette: {
@@ -35,7 +37,7 @@ class Header extends Component {
                 <MuiThemeProvider theme={theme}>
                     <Button color={"primary"}>Become a host</Button>
                     <Button color={"primary"}>Sign up</Button>
-                    <Button color={"primary"}>Log in</Button>
+                    <Button onClick={()=>{history.push('/login')}}color={"primary"}>Log in</Button>
                 </MuiThemeProvider>    
               </Flexbox>
             </Flexbox>

@@ -38,8 +38,14 @@
   flex-direction: row;
   height: 50%;
   padding: 3%;
+  align-items: center;
 }
 
 .container3_content .title {
   font-size: 4vh;
+}
+
+.Container3 img {
+  width: 20%;
+  height: 20%;
 }
