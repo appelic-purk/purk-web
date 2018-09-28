@@ -11,6 +11,10 @@
     font-family: 'Questrial';
 }
 
+.purk-color {
+  color: #ffa38b;
+}
+
 html, body { 
     /* The image used */
     /* background-image: url('./../../images/City.png'); */

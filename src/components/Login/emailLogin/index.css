@@ -1,0 +1,11 @@
+.EmailLogin {
+  display: flex;
+  flex-direction: column;
+  padding-left: 25%;
+  padding-right: 5%;
+}
+
+.EmailLogin .row {
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+}

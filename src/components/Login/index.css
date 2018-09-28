@@ -1,0 +1,24 @@
+.Login {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.Login .LoginTitle {
+  font-size: 10vh;
+  color: #ffa38b;
+}
+
+.cols {
+  display: flex;
+}
+
+.col1 {
+  border-right: 0.5px solid #777777;
+  width: 50%;
+}
+
+.col2{
+  width: 50%;
+}
