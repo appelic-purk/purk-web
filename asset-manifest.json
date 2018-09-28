@@ -1,18 +1,13 @@
 {
-  "main.css": "static/css/main.6b481628.css",
-  "main.css.map": "static/css/main.6b481628.css.map",
-  "main.js": "static/js/main.e5b33e75.js",
-  "main.js.map": "static/js/main.e5b33e75.js.map",
+  "main.css": "static/css/main.25b72217.css",
+  "main.css.map": "static/css/main.25b72217.css.map",
+  "main.js": "static/js/main.74457fd3.js",
+  "main.js.map": "static/js/main.74457fd3.js.map",
   "static/media/City.png": "static/media/City.a046e3a6.png",
   "static/media/Proxima Nova Reg.ttf": "static/media/Proxima Nova Reg.99e6f15d.ttf",
   "static/media/PurkLogoSalmon.png": "static/media/PurkLogoSalmon.17f98377.png",
   "static/media/Questrial-Regular.ttf": "static/media/Questrial-Regular.2fc665f3.ttf",
-  "static/media/car-gas.png": "static/media/car-gas.5eaa63f5.png",
   "static/media/internet.png": "static/media/internet.326ed97d.png",
-  "static/media/lightbulb-border.png": "static/media/lightbulb-border.76f991ee.png",
-  "static/media/money-coins.png": "static/media/money-coins.4137c485.png",
-  "static/media/park-border.png": "static/media/park-border.9797f764.png",
   "static/media/parking_spot.jpg": "static/media/parking_spot.468cafd1.jpg",
-  "static/media/roadtrip.jpg": "static/media/roadtrip.6720d44c.jpg",
-  "static/media/timer-mix.png": "static/media/timer-mix.5eea846d.png"
+  "static/media/roadtrip.jpg": "static/media/roadtrip.6720d44c.jpg"
 }
