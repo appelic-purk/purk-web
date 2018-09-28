@@ -23,7 +23,7 @@ const theme = createMuiTheme({
   }
 });
 
-class EmailLogin extends Component {
+class EmailSignUp extends Component {
   render() {
     return <div className="EmailLogin">
         <div className="row">
@@ -33,35 +33,18 @@ class EmailLogin extends Component {
           <TextField type="password" variant="outlined" label={"Password"} fullWidth />
         </div>
         <div className="row">
-          <MuiThemeProvider theme={theme}>
-            <Button variant="outlined" color="primary" fullWidth>Log In</Button>
-          </MuiThemeProvider>
-        </div>
-        <div className="row-col">
-          <div className="remember-me">
-            <FormGroup row>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    // checked={this.state.checkedA}
-                    // onChange={this.handleChange('checkedA')}
-                    value="Remember me"
-                  />
-                }
-                label="Remember Me" />
-            </FormGroup>
-          </div>
-          <div className="forgot-password">
-            <span>
-              <a onClick={()=>{history.push('/resetPassword')}}>Forgot Password</a>
-            </span>
-          </div>
+          <TextField type="password" variant="outlined" label={"Retype Password"} fullWidth />
         </div>
         <div className="row">
-          <p>Don't have an account? <a onClick={()=>{history.push('/signup')}}>Sign Up</a></p>
+          <MuiThemeProvider theme={theme}>
+            <Button variant="outlined" color="primary" fullWidth>Go</Button>
+          </MuiThemeProvider>
+        </div>
+        <div className="row">
+          <p>Already have an account? <a onClick={()=>{history.push('/login')}}>Login</a></p>
         </div>
       </div>;
   }
 }
 
-export default EmailLogin;
+export default EmailSignUp;

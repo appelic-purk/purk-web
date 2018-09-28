@@ -19,21 +19,21 @@ const theme = createMuiTheme({
   }
 });
 
-class SocialMediaLogin extends Component {
+class SocialMediaSignUp extends Component {
   render() {
     return <div className="SocialMediaLogin">
         <div className="row">
           <MuiThemeProvider theme={theme}>
-            <Button color="primary" variant="contained" fullWidth>Login With Facebook</Button>
+            <Button color="primary" variant="contained" fullWidth>Sign Up With Facebook</Button>
           </MuiThemeProvider>
         </div>
         <div className="row">
         <MuiThemeProvider theme={theme}>
-          <Button color="secondary" variant="contained" fullWidth>Login With Google</Button>
+          <Button color="secondary" variant="contained" fullWidth>Sign Up With Google</Button>
         </MuiThemeProvider>
         </div>
       </div>;
   }
 }
 
-export default SocialMediaLogin;
+export default SocialMediaSignUp;

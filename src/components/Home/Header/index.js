@@ -36,7 +36,7 @@ class Header extends Component {
                 <SearchBar onChange={() => console.log("onChange")} onRequestSearch={() => console.log("onRequestSearch")} placeholder={'Try "Westwood"'} style={{ margin: "0 auto", maxWidth: 800, flexGrow: 8 }} />
                 <MuiThemeProvider theme={theme}>
                     <Button color={"primary"}>Become a host</Button>
-                    <Button color={"primary"}>Sign up</Button>
+                    <Button onClick={()=>{history.push('/signup')}} color={"primary"}>Sign up</Button>
                     <Button onClick={()=>{history.push('/login')}}color={"primary"}>Log in</Button>
                 </MuiThemeProvider>    
               </Flexbox>

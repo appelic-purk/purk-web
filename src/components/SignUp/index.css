@@ -1,33 +1,37 @@
-.Login {
+.SignUp {
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
 }
 
-.Login .LoginTitle {
+.SignUp .LoginTitle {
   font-size: 10vh;
   color: #ffa38b;
 }
 
-.Login .cols {
+.SignUp .cols {
   display: flex;
 }
 
-.Login .col1 {
+.SignUp .col1 {
   border-right: 0.5px solid #777777;
   width: 50%;
 }
 
-.Login .col2 {
+.SignUp .col2{
   width: 50%;
 }
 
-.Login a:hover {
+.SignUp a:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
-.Login a {
+.SignUp a {
   font-weight: bold;
+}
+
+.SignUp .footer {
+  margin: 3%;
 }
