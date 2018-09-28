@@ -1,0 +1,12 @@
+.SocialMediaLogin {
+  display: flex;
+  flex-direction: column;
+  padding-right: 25%;
+  padding-left: 5%;
+}
+
+.SocialMediaLogin .row {
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  align-self: center;
+}

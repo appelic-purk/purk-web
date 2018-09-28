@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
 import EmailLogin from './emailLogin/index';
+import SocialMediaLogin from './socialMediaLogin/index';
 
 class Login extends Component {
   render() {
@@ -15,7 +16,7 @@ class Login extends Component {
           <EmailLogin />
         </div>
         <div className="col2">
-          <p>col2</p>
+          <SocialMediaLogin />
         </div>
       </div>
     </div>;
