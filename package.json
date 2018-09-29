@@ -10,6 +10,7 @@
     "history": "^4.7.2",
     "material-ui-search-bar": "^1.0.0-beta.11",
     "react": "^16.5.2",
+    "react-app-env": "^1.2.2",
     "react-dom": "^16.5.2",
     "react-google-button": "^0.5.3",
     "react-router": "^4.3.1",
@@ -17,8 +18,9 @@
     "react-scripts": "1.1.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-env start --env-file=development.env",
+    "start:prod": "react-app-env start --env-file=production.env",
+    "build": "react-app-env build --env-file=production.env",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",

@@ -3,6 +3,8 @@ import LoginView from './../Views/Login/Login';
 import SignUpView from "./../Views/SignUp/SignUp";
 
 const Routes = () => {
+  let public_url = (process.env.REACT_APP_PUBLIC_URL) ? process.env.REACT_APP_PUBLIC_URL : "";
+  console.log(public_url);
   return (
     [
       {
@@ -10,11 +12,11 @@ const Routes = () => {
         component: HomeView
       },
       {
-        path: '/login',
+        path: "/login",
         component: LoginView
       },
       {
-        path: '/signup',
+        path: "/signup",
         component: SignUpView
       }
     ]
