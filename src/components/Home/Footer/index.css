@@ -1,4 +1,4 @@
-.Container7 {
+.Footer {
   display: flex;
   flex-direction: row;
   overflow: hidden;
@@ -9,15 +9,15 @@
   align-items: center;
 }
 
-.Container7_title {
+.Footer_title {
   font-size: 10vh;
 }
 
-.Container7 .col1 {
+.Footer .col1 {
   width: 50%;
 }
 
-.Container7 .col2 {
+.Footer .col2 {
   width: 50%;
   display: flex;
   flex-direction: column;

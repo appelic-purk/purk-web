@@ -15,12 +15,12 @@ const theme = createMuiTheme({
   }
 });
 
-class Container7 extends Component {
+class Footer extends Component {
   render() {
-    return <div className="Container7">
+    return <div className="Footer">
         <div className="col1">
           <div className="title">
-            <div className="Container7_title">PURK</div>
+            <div className="Footer_title">PURK</div>
           </div>
           <p>info.purk@gmail.com</p>
           <p>(213) 927-5532</p>
@@ -36,4 +36,4 @@ class Container7 extends Component {
   }
 }
 
-export default Container7;
+export default Footer;

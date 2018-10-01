@@ -5,7 +5,7 @@ import Container3 from "./../../components/Home/containers/container3";
 import Container4 from "./../../components/Home/containers/container4";
 import Container5 from "./../../components/Home/containers/container5";
 import Container6 from "./../../components/Home/containers/container6";
-import Container7 from "./../../components/Home/containers/container7";
+import Footer from "./../../components/Home/Footer/index";
 
 class HomeView extends Component {
   render() {
@@ -16,7 +16,7 @@ class HomeView extends Component {
       <Container4 />
       <Container5 />
       <Container6 />
-      <Container7 />
+      <Footer />
     </div>
   }
 }
