@@ -3,12 +3,13 @@ import './App.css';
 import HomeView from "./Views/Home/Home";
 import LoginView from "./Views/Login/Login";
 import history from "./history/history";
-import Routes from "./routes/routes";
+import Routes from "./routes/routes"
+import { createStore } from "redux";
+import reducer from "./reducers"
+import { Route } from "react-router";
 
-import {
-  Router,
-  Route
-} from "react-router";
+const initialState = { AppName: "Purk-Web" }
+const store = createStore(reducer, initialState)
 
 class App extends Component {
   render() {
