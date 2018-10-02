@@ -6,6 +6,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import history from './../../../history/history';
 import './index.css';
+import { createUserWithEmail } from "./../../../Controllers/Signup/signupController";
 import {
   withStyles,
   MuiThemeProvider,
@@ -24,20 +25,44 @@ const theme = createMuiTheme({
 });
 
 class EmailSignUp extends Component {
+  state = { }
+
+  handleChange = (key, event) => {
+    this.setState({ [key]: event.target.value })
+  }
+
   render() {
     return <div className="EmailLogin">
         <div className="row">
-          <TextField variant="outlined" label={"Email"} fullWidth />
+          <TextField
+            variant="outlined"
+            onChange={(event) => { this.handleChange('email', event) }}
+            label={"Email"}
+            fullWidth />
         </div>
         <div className="row">
-          <TextField type="password" variant="outlined" label={"Password"} fullWidth />
+          <TextField
+            type="password"
+            onChange={(event)=>{this.handleChange('password', event)}}
+            variant="outlined"
+            label={"Password"}
+            fullWidth />
         </div>
         <div className="row">
-          <TextField type="password" variant="outlined" label={"Retype Password"} fullWidth />
+          <TextField
+            type="password"
+            onChange={(event) => { this.handleChange('retypePassword', event) }}
+            variant="outlined"
+            label={"Retype Password"}
+            fullWidth />
         </div>
         <div className="row">
           <MuiThemeProvider theme={theme}>
-            <Button variant="outlined" color="primary" fullWidth>Go</Button>
+            <Button
+              variant="outlined"
+              color="primary"
+              onClick={()=>{createUserWithEmail(this.state.email, this.state.password, this.state.retypePassword)}}
+              fullWidth>Go</Button>
           </MuiThemeProvider>
         </div>
         <div className="row">

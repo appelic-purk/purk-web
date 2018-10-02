@@ -1,6 +1,7 @@
 import HomeView from './../Views/Home/Home';
 import LoginView from './../Views/Login/Login';
 import SignUpView from "./../Views/SignUp/SignUp";
+import DashboardView from "./../Views/Dashboard/Dashboard";
 
 const Routes = () => {
   let public_url = (process.env.REACT_APP_PUBLIC_URL) ? process.env.REACT_APP_PUBLIC_URL : "";
@@ -17,6 +18,10 @@ const Routes = () => {
       {
         path: "/signup",
         component: SignUpView
+      },
+      {
+        path: "/dashboard",
+        component: DashboardView
       }
     ]
   );
