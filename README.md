@@ -10,6 +10,26 @@ After you have finished cloning the repo, install all of the dependencies `npm i
 Create a `development.env` and `production.env` file in the root directory
   * Inside `production.env` add `PUBLIC_URL="/purk-web"` and leave the `development.env` file empty.
 
+Create a file `Firebase.js` inside `src/` and add the following content. 
+
+```javascript
+import * as firebase from "firebase";
+
+let config = {
+    apiKey: "API_KEY",
+    authDomain: "AUTH_DOMAIN",
+    databaseURL: "DATABASE_URL",
+    projectId: "PROJECT_ID",
+    storageBucket: "STORAGE_BUCKET",
+    messagingSenderId: "MESSAGING_SENDER_ID"
+};
+
+const firebaseApp = firebase.initializeApp(config);
+
+export default firebaseApp;
+```
+Msg Tim for the correct credentials or navigate to Firebase.google.com and add the project settings yourself. *You will need to be added as an editor to the Firebase project* in order to access the console so msg Tim for this as well.
+
 Run `npm start` to run the app in `development`.
 
 ### Contributing
