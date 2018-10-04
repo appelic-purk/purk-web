@@ -34,12 +34,14 @@ Run `npm start` to run the app in `development`.
 
 ### Contributing
 
-1. Making changes is as simple as stage your modified files `git add <filename>`
-2. Write a **helpful** commit message. See (here)[https://chris.beams.io/posts/git-commit/] for commit message conventions. `git commit`
-3. Before pushing, make sure you're on the right branch. If you're pushing for the first time, `git push --set-upstream origin master`. Afterwards, you can just run `git push` to push to master.
-4. For now, we won't be utilizing pull requests. Just push to master as long as you don't have any code-breaking changes.
+1. `git status` to see which files have been modified. If a filename is in green, that means that file is already staged and you don't need to worry about it. If a filename is in red, then that means that file is not yet staged and if you want those changes to be made to the repo, then you will need to stage it. 
+2. Staging is as simple as `git add <filename>`. Ex: `git add src/App.js`
+3. Write a **helpful** commit message. See (here)[https://chris.beams.io/posts/git-commit/] for commit message conventions. `git commit`. You'll be taken to your default text editor and for most of us, it will be `vim`. To edit the commit message, type `i` and you'll be able to start inserting text. Once you're done with your commit message, hit `esc` and write `:wq` (write + quit). More on vim (here)[https://www.howtoforge.com/vim-basics].
+4. If you're pushing for the first time, `git push --set-upstream origin master`. Afterwards, you can just run `git push` to push to master.
+5. For now, we won't be utilizing pull requests. Just push to master as long as you don't have any code-breaking changes.
 
 ### Deploying the Site
+Just pushing your code to the master repo won't actually update the site. You need to actually deploy it as well.
 
 To deploy the site, make sure you have configured your `development.env` and `production.env` files. If you have configured these files and have ensured that your changes are not app-breaking, run `npm run deploy`
 
@@ -47,6 +49,10 @@ After a few minutes, navigate to `https://appelic-purk.github.io/purk-web/` to s
 
 ### Tools
 * Material UI for most UI features
+* Firebase for our backend solution
 
+### Learning Resources:
+* (Flexbox)[https://www.youtube.com/watch?v=JJSoEo8JSnc]
+* (React)[https://www.youtube.com/watch?v=Ke90Tje7VS0]
 
 ##### Current Contributors: Tim & Andy
