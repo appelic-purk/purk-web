@@ -47,3 +47,6 @@ After a few minutes, navigate to `https://appelic-purk.github.io/purk-web/` to s
 
 ### Tools
 * Material UI for most UI features
+
+
+##### Current Contributors: Tim & Andy
