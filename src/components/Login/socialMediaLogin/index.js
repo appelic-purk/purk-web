@@ -7,6 +7,7 @@ import {
   MuiThemeProvider,
   createMuiTheme
 } from "@material-ui/core/styles";
+import { signInUserWithFacebook, signInUserWithGoogle } from '../../../Controllers/Login/loginController';
 
 const theme = createMuiTheme({
   palette: {
@@ -24,12 +25,21 @@ class SocialMediaLogin extends Component {
     return <div className="SocialMediaLogin">
         <div className="row">
           <MuiThemeProvider theme={theme}>
-            <Button color="primary" variant="contained" fullWidth>Login With Facebook</Button>
+            <Button
+              color="primary"
+              onClick={()=>signInUserWithFacebook()}
+              variant="contained"
+              fullWidth
+            >Login With Facebook</Button>
           </MuiThemeProvider>
         </div>
         <div className="row">
         <MuiThemeProvider theme={theme}>
-          <Button color="secondary" variant="contained" fullWidth>Login With Google</Button>
+          <Button
+            color="secondary" 
+            onClick={()=>signInUserWithGoogle()}
+            variant="contained"
+            fullWidth>Login With Google</Button>
         </MuiThemeProvider>
         </div>
       </div>;
