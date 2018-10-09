@@ -12,11 +12,14 @@
     "material-ui-search-bar": "^1.0.0-beta.11",
     "react": "^16.5.2",
     "react-app-env": "^1.2.2",
+    "react-code-input": "^3.8.0",
     "react-dom": "^16.5.2",
     "react-google-button": "^0.5.3",
+    "react-phone-number-input": "^2.2.11",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
+    "react-swipeable-views": "^0.13.0",
     "redux": "^4.0.0"
   },
   "scripts": {

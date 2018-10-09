@@ -1,0 +1,20 @@
+.phoneNumberPrompt {
+  display: "flex";
+  height: 100vh;
+}
+
+.phoneNumberPrompt .title_row {
+  font-size: 8vh;
+  flex: 1;
+  padding: 10%;
+}
+
+.phoneNumberPrompt .phoneInput {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.PhoneInputField {
+  width: 50%;
+  margin: 0 auto;
+}

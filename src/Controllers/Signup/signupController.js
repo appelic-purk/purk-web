@@ -9,7 +9,11 @@ export const createUserWithEmail = (email, password, retypePassword) => {
   } else {
     firebaseApp.auth().createUserWithEmailAndPassword(email, password)
       .then(function (firebaseUser) {
-        history.push('/dashboard')
+        if (!firebaseUser.user.phoneNumber) {
+          history.push('/verify')
+        } else {
+          history.push('/dashboard')
+        }
       }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -30,13 +34,17 @@ export const createUserWithGmail = () => {
 }
 
 const createUserWithSocialMedia = (provider) => {
-  firebaseApp.auth().signInWithPopup(provider).then(function (result) {
+  firebaseApp.auth().signInWithPopup(provider).then(function (firebaseUser) {
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-    var token = result.credential.accessToken;
+    var token = firebaseUser.credential.accessToken;
     // The signed-in user info.
-    var user = result.user;
+    var user = firebaseUser.user;
     // firebaseApp.auth().signInWithRedirect(provider);
-    history.push("/dashboard");
+    if (!firebaseUser.user.phoneNumber) {
+      history.push('/verify')
+    } else {
+      history.push('/dashboard')
+    }
   }).catch(function (error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -45,6 +53,5 @@ const createUserWithSocialMedia = (provider) => {
     var email = error.email;
     // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
-    console.log(error)
   });
 }

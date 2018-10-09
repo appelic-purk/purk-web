@@ -14,8 +14,11 @@ export const signInUserWithEmail = (email, password, rememberMe) => {
         firebaseApp
           .auth().signInWithEmailAndPassword(email, password)
           .then(function (firebaseUser) {
-            console.log("success");
-            history.push("/dashboard");
+            if (!firebaseUser.user.phoneNumber) {
+              history.push('/verify')
+            } else {
+              history.push('/dashboard')
+            }
           })
           .catch(function (error) {
             // Handle Errors here.
@@ -59,11 +62,15 @@ export const signInUserWithEmail = (email, password, rememberMe) => {
 };
 
 export const signInSavedUser = () => {
-  firebaseApp.auth().onAuthStateChanged(function (user) {
-    if (user) {
+  firebaseApp.auth().onAuthStateChanged(function (firebaseUser) {
+    if (firebaseUser) {
       // User is signed in.
       console.log('user is signed in already')
-      history.push("/dashboard");
+      if (!firebaseUser.user.phoneNumber) {
+        history.push('/verify')
+      } else {
+        history.push('/dashboard')
+      }
     } else {
       // No user is signed in.
       console.log('no user is signed in yet')
@@ -82,12 +89,16 @@ export const signInUserWithGoogle = () => {
 }
 
 const signInUserWithSocialMedia = (provider) => {
-  firebaseApp.auth().signInWithPopup(provider).then(function (result) {
+  firebaseApp.auth().signInWithPopup(provider).then(function (firebaseUser) {
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-    var token = result.credential.accessToken;
+    var token = firebaseUser.credential.accessToken;
     // The signed-in user info.
-    var user = result.user;
-    history.push("/dashboard");
+    var user = firebaseUser.user;
+    if (!firebaseUser.user.phoneNumber) {
+      history.push("/verify");
+    } else {
+      history.push("/dashboard");
+    }
   }).catch(function (error) {
     // Handle Errors here.
     var errorCode = error.code;

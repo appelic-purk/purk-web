@@ -1,0 +1,14 @@
+.CodePrompt {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.CodePrompt .title {
+  font-size: 8vh;
+}
+
+.CodePrompt .title_row {
+  padding-top: 10%;
+  padding-bottom: 5%;
+}
