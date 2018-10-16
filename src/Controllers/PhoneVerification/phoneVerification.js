@@ -42,11 +42,12 @@ export const verifyCode = (code) => {
   window.confirmationResult.confirm(code).then(function (result) {
     // User signed in successfully.
     var user = result.user;
-    history.push('/dashboard')
+    history.push('/welcome')
     // ...
   }).catch(function (error) {
     // User couldn't sign in (bad verification code?)
     // ...
-    alert("Incorrect Code")
+    alert(error.message)
+    console.log(error)
   });
 }

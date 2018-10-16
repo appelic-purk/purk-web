@@ -3,6 +3,7 @@ import LoginView from './../Views/Login/Login';
 import SignUpView from "./../Views/SignUp/SignUp";
 import DashboardView from "./../Views/Dashboard/Dashboard";
 import PhoneVerificationView from '../Views/PhoneVerification/PhoneVerification';
+import ProfileSetupView from '../Views/ProfileSetup/ProfileSetup';
 
 const Routes = () => {
   let public_url = (process.env.REACT_APP_PUBLIC_URL) ? process.env.REACT_APP_PUBLIC_URL : "";
@@ -27,6 +28,10 @@ const Routes = () => {
       {
         path: "/verify",
         component: PhoneVerificationView
+      },
+      {
+        path: "/welcome",
+        component: ProfileSetupView
       }
     ]
   );

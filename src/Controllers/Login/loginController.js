@@ -66,7 +66,7 @@ export const signInSavedUser = () => {
     if (firebaseUser) {
       // User is signed in.
       console.log('user is signed in already')
-      if (!firebaseUser.user.phoneNumber) {
+      if (!firebaseUser.phoneNumber) {
         history.push('/verify')
       } else {
         history.push('/dashboard')
@@ -84,7 +84,7 @@ export const signInUserWithFacebook = () => {
 }
 
 export const signInUserWithGoogle = () => {
-  let provider = new firebase.auth.FacebookAuthProvider();
+  let provider = new firebase.auth.GoogleAuthProvider();
   signInUserWithSocialMedia(provider);
 }
 
