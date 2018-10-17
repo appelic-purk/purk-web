@@ -99,16 +99,15 @@ class ProfileSetup extends Component {
           {this.state.src ? 
           <Dialog open={this.state.openCropper} onClose={this.handleClose}>
             <DialogTitle>Crop Image</DialogTitle>
-              <ReactCrop src={this.state.src} crop={this.state.crop} onChange={this.onCropChange} onImageLoaded={this.onImageLoaded} />
+              <ReactCrop src={this.state.src} crop={this.state.crop} onChange={this.onCropChange} onImageLoaded={this.onImageLoaded}/>
               <Button onClick={this.handleClose} autoFocus>
                 Done
               </Button>
-            </Dialog> : null}
+          </Dialog> : null}
         </div>
         <div>
           <Button onClick={this.handleSubmit}>Done</Button>
         </div>
-        {/* <img src={this.state.img}></img> */}
       </div>;
   }
 }
