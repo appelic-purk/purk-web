@@ -37,8 +37,9 @@ Run `npm start` to run the app in `development`.
 1. `git status` to see which files have been modified. If a filename is in green, that means that file is already staged and you don't need to worry about it. If a filename is in red, then that means that file is not yet staged and if you want those changes to be made to the repo, then you will need to stage it. 
 2. Staging is as simple as `git add <filename>`. Ex: `git add src/App.js`
 3. Write a **helpful** commit message. See (here)[https://chris.beams.io/posts/git-commit/] for commit message conventions. `git commit`. You'll be taken to your default text editor and for most of us, it will be `vim`. To edit the commit message, type `i` and you'll be able to start inserting text. Once you're done with your commit message, hit `esc` and write `:wq` (write + quit). More on vim (here)[https://www.howtoforge.com/vim-basics].
-4. If you're pushing for the first time, `git push --set-upstream origin master`. Afterwards, you can just run `git push` to push to master.
-5. For now, we won't be utilizing pull requests. Just push to master as long as you don't have any code-breaking changes.
+4. Run `git pull` and resolve any merge conflicts (if there are any)
+5. If you're pushing for the first time, `git push --set-upstream origin master`. Afterwards, you can just run `git push` to push to master.
+6. For now, we won't be utilizing pull requests. Just push to master as long as you don't have any code-breaking changes.
 
 ### Deploying the Site
 Just pushing your code to the master repo won't actually update the site. You need to actually deploy it as well.
@@ -46,6 +47,9 @@ Just pushing your code to the master repo won't actually update the site. You ne
 To deploy the site, make sure you have configured your `development.env` and `production.env` files. If you have configured these files and have ensured that your changes are not app-breaking, run `npm run deploy`
 
 After a few minutes, navigate to `https://appelic-purk.github.io/purk-web/` to see your changes.
+
+### Good Practice
+It's generally good practice to always run a `git pull` before your start some development so that you can get the latest changes. Everytime you pull, make sure you also run `npm install` to download any new dependencies that may have been added.
 
 ### Tools
 * Material UI for most UI features
