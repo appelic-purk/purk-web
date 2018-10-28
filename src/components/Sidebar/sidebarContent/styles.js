@@ -1,15 +1,8 @@
 const styles = {
   sidebar: {
     textAlign: "left",
-    height: "100%"
-  },
-  sidebarTitle: {
-    display: "block",
-    width: "100%",
-    backgroundColor: "#ffa38b",
-    fontWeight: "bold",
-    padding: "13% 0%",
-    fontSize: "4vh"
+    height: "100%",
+    backgroundColor: 'white'
   },
   sidebarLink: {
     display: "block",
@@ -23,8 +16,22 @@ const styles = {
   },
   content: {
     height: "100%",
-    backgroundColor: "white",
     color: "#757575"
+  },
+  profileImage: {
+    padding: "5% 0",
+    objectFit: "cover",
+    display: "block",
+    maxWidth: "230px",
+    maxHeight: "95px",
+    width: "10vh",
+    height: "10vh",
+    borderRadius: "50%",
+    margin: "0 auto",
+  },
+  displayName: {
+    textAlign: "center",
+    color: "#757575",
   }
 };
 

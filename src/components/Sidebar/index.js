@@ -37,8 +37,7 @@ class Sidebar extends Component {
     const sidebarProps = {
       sidebar:< SidebarContent />,
       docked: this.state.docked,
-      sidebarClassName: "custom-sidebar-class",
-      contentId: "custom-sidebar-content-id",
+      contentId: "sidebar",
       open: this.state.open,
       touch: this.state.touch,
       shadow: this.state.shadow,
@@ -46,7 +45,7 @@ class Sidebar extends Component {
       touchHandleWidth: this.state.touchHandleWidth,
       dragToggleDistance: this.state.dragToggleDistance,
       transitions: this.state.transitions,
-      onSetOpen: this.onSetOpen
+      onSetOpen: this.onSetOpen,
     };
     return (
       <ReactSidebar {...sidebarProps}>
