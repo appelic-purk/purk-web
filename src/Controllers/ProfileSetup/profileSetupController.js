@@ -1,6 +1,6 @@
+import history from "./../../history/history";
 import * as firebase from "firebase";
 import firebaseApp from "./../../Firebase";
-import history from "./../../history/history";
 
 export function getCroppedImg(image, pixelCrop, fileName) {
   const canvas = document.createElement('canvas');

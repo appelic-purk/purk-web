@@ -7,8 +7,8 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
 import { getCroppedImg, updateProfile } from "./../../Controllers/ProfileSetup/profileSetupController";
-import firebaseApp from "./../../Firebase";
 import history from "./../../history/history";
+import firebaseApp from "./../../Firebase";
 
 class ProfileSetup extends Component {
   state = {

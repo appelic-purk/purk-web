@@ -15,7 +15,7 @@ export const signInUserWithEmail = (email, password, rememberMe) => {
           .auth().signInWithEmailAndPassword(email, password)
           .then(function (firebaseUser) {
             if (!firebaseUser.user.phoneNumber) {
-              history.push('/verify')
+              history.push('/verify');
             } else {
               history.push('/dashboard')
             }
@@ -42,7 +42,7 @@ export const signInUserWithEmail = (email, password, rememberMe) => {
           .auth().signInWithEmailAndPassword(email, password)
           .then(function (firebaseUser) {
             console.log("success");
-            history.push("/dashboard");
+            return history.push('/dashboard');
           })
           .catch(function (error) {
             // Handle Errors here.
@@ -63,13 +63,14 @@ export const signInUserWithEmail = (email, password, rememberMe) => {
 
 export const signInSavedUser = () => {
   firebaseApp.auth().onAuthStateChanged(function (firebaseUser) {
-    if (firebaseUser) {
+      if (firebaseUser) {
       // User is signed in.
       console.log('user is signed in already')
       if (!firebaseUser.phoneNumber) {
-        history.push('/verify')
+        history.push('/verify');
       } else {
-        history.push('/dashboard')
+        console.log("UYGH")
+        history.push('/dashboard');
       }
     } else {
       // No user is signed in.
@@ -95,7 +96,7 @@ const signInUserWithSocialMedia = (provider) => {
     // The signed-in user info.
     var user = firebaseUser.user;
     if (!firebaseUser.user.phoneNumber) {
-      history.push("/verify");
+      history.push('/verify');
     } else {
       history.push("/dashboard");
     }

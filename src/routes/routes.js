@@ -32,7 +32,7 @@ const Routes = () => {
       {
         path: "/welcome",
         component: ProfileSetupView
-      }
+      },
     ]
   );
 }

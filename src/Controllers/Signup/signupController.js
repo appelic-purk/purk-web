@@ -10,9 +10,9 @@ export const createUserWithEmail = (email, password, retypePassword) => {
     firebaseApp.auth().createUserWithEmailAndPassword(email, password)
       .then(function (firebaseUser) {
         if (!firebaseUser.user.phoneNumber) {
-          history.push('/verify')
+          history.push('/verify');
         } else {
-          history.push('/dashboard')
+          history.push('/dashboard');
         }
       }).catch(function (error) {
         // Handle Errors here.
@@ -41,7 +41,7 @@ const createUserWithSocialMedia = (provider) => {
     var user = firebaseUser.user;
     // firebaseApp.auth().signInWithRedirect(provider);
     if (!firebaseUser.user.phoneNumber) {
-      history.push('/verify')
+      history.push('/verify');
     } else {
       history.push('/dashboard')
     }
