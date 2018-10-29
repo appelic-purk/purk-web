@@ -1,64 +1,116 @@
 import React, { Component } from "react";
-import ReactSidebar from "react-sidebar";
-import SidebarContent from "./sidebarContent/";
+import SideNav, {
+  Toggle,
+  Nav,
+  NavItem,
+  NavIcon,
+  NavText
+} from "@trendmicro/react-sidenav";
 import { withStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
-import IconButton from "@material-ui/core/IconButton";
 import styles from "./styles.js";
+import HomeIcon from "@material-ui/icons/Home";
+import AccountIcon from "@material-ui/icons/AccountCircle";
+import ListIcon from "@material-ui/icons/ListAlt";
+import ParkIcon from "@material-ui/icons/LocalParking";
+import styled from "styled-components";
+import "@trendmicro/react-sidenav/dist/react-sidenav.css";
+import * as firebase from "firebase";
+
+const NavHeader = styled.div`
+  display: ${props => (props.expanded ? "block" : "none")};
+  white-space: nowrap;
+  background-color: #fc7f5f;
+  color: #fff;
+  > * {
+    color: inherit;
+    background-color: inherit;
+  }
+`;
+
+// height: 20px + 10px + 10px = 40px
+const NavTitle = styled.div`
+  font-size: 2em;
+  line-height: 20px;
+  padding: 10px 0;
+`;
+
+// height: 20px + 4px = 24px;
+const NavSubTitle = styled.div`
+  font-size: 1em;
+  line-height: 20px;
+  padding-bottom: 4px;
+`;
+
+const NavInfoPane = styled.div`
+  float: left;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #ffa38b;
+`;
 
 class Sidebar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      docked: false,
-      open: false,
-      transitions: true,
-      touch: true,
-      shadow: true,
-      pullRight: false,
-      touchHandleWidth: 20,
-      dragToggleDistance: 30
-    };
-    this.onSetOpen = this.onSetOpen.bind(this);
-    this.menuButtonClick = this.menuButtonClick.bind(this);
-  }
+  state = {
+    selected: "home",
+    expanded: false,
+    displayName: ""
+  };
 
-  onSetOpen(open) {
-    this.setState({ open });
-  }
+  onSelect = selected => {
+    this.setState({ selected: selected });
+  };
+  onToggle = expanded => {
+    this.setState({ expanded: expanded });
+  };
 
-  menuButtonClick(ev) {
-    ev.preventDefault();
-    this.onSetOpen(!this.state.open);
+  componentWillMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({ photoURL: user.photoURL });
+      this.setState({ displayName: user.displayName });
+    });
   }
 
   render() {
-    let { classes } = this.props;
-    const sidebarProps = {
-      sidebar:< SidebarContent />,
-      docked: this.state.docked,
-      contentId: "sidebar",
-      open: this.state.open,
-      touch: this.state.touch,
-      shadow: this.state.shadow,
-      pullRight: this.state.pullRight,
-      touchHandleWidth: this.state.touchHandleWidth,
-      dragToggleDistance: this.state.dragToggleDistance,
-      transitions: this.state.transitions,
-      onSetOpen: this.onSetOpen,
-    };
-    return (
-      <ReactSidebar {...sidebarProps}>
-        <span className={classes.sidebarHeader}>
-          {!this.state.docked && (
-            <IconButton onClick={this.menuButtonClick} className={classes.sidebarMenuIcon}>
-              <MenuIcon />
-            </IconButton>
-          )}
-          <span>Purk</span>
-        </span>
-      </ReactSidebar>
-    );
+    const { classes } = this.props;
+    const { selected, expanded, displayName, photoURL } = this.state;
+    return <div>
+        <SideNav onSelect={this.onSelect} onToggle={this.onToggle}>
+          <SideNav.Toggle />
+          <NavHeader expanded={expanded}>
+            <NavTitle>Purk</NavTitle>
+            <NavSubTitle>Menu</NavSubTitle>
+          </NavHeader>
+          {expanded && <NavInfoPane>
+            <img className={classes.profileImage} src={photoURL} />
+            <div className={classes.displayName}>{displayName}</div>
+          </NavInfoPane>}
+          <SideNav.Nav defaultSelected="home">
+            <NavItem eventKey="home">
+              <NavIcon>
+                <HomeIcon />
+              </NavIcon>
+              <NavText>Home</NavText>
+            </NavItem>
+            <NavItem eventKey="myAccount">
+              <NavIcon>
+                <AccountIcon />
+              </NavIcon>
+              <NavText>My Account</NavText>
+            </NavItem>
+            <NavItem eventKey="myListings">
+              <NavIcon>
+                <ListIcon />
+              </NavIcon>
+              <NavText>My Listings</NavText>
+            </NavItem>
+            <NavItem eventKey="myReservations">
+              <NavIcon>
+                <ParkIcon />
+              </NavIcon>
+              <NavText>My Reservations</NavText>
+            </NavItem>
+          </SideNav.Nav>
+        </SideNav>
+      </div>;
   }
 }
 

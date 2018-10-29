@@ -1,17 +1,15 @@
 const styles = {
-  sidebarHeader: {
-    textAlign: "left",
-    width: "100%",
-    display: "inline-block",
-    fontSize: "4vh",
-    backgroundColor: "#ffa38b",
-    color: "white",
-    padding: "1% 0%"
+  profileImage: {
+    objectFit: "cover",
+    display: "block",
+    width: "10vh",
+    height: "10vh",
+    borderRadius: "50%",
+    border: "1px solid white", 
+    margin: "0 auto"
   },
-  sidebarMenuIcon: {
-    paddingLeft: "2%",
-    paddingRight: "2%",
-    color: "white"
+  displayName: {
+    color: 'white'
   }
 };
 
