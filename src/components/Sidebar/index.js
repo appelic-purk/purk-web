@@ -85,25 +85,25 @@ class Sidebar extends Component {
           </NavInfoPane>}
           <SideNav.Nav defaultSelected="home">
             <NavItem eventKey="home">
-              <NavIcon>
+              <NavIcon style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
                 <HomeIcon />
               </NavIcon>
               <NavText>Home</NavText>
             </NavItem>
             <NavItem eventKey="myAccount">
-              <NavIcon>
+            <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                 <AccountIcon />
               </NavIcon>
               <NavText>My Account</NavText>
             </NavItem>
             <NavItem eventKey="myListings">
-              <NavIcon>
+            <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                 <ListIcon />
               </NavIcon>
               <NavText>My Listings</NavText>
             </NavItem>
             <NavItem eventKey="myReservations">
-              <NavIcon>
+            <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                 <ParkIcon />
               </NavIcon>
               <NavText>My Reservations</NavText>
