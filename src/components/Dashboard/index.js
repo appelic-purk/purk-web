@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { signOutUser, checkUserCredentials } from "./../../Controllers/Dashboard/dashboardController";
-import history from "./../../history/history";
+import MapContainer from '../MapContainer';
 
 class Dashboard extends Component {
   state = {}
@@ -10,6 +10,7 @@ class Dashboard extends Component {
   render() {
     return <div className="Dashboard">
         <h1>Dashboard view!</h1>
+        <MapContainer />
         <button onClick={() => {
             signOutUser();
           }}>

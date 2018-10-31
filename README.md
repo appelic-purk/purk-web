@@ -9,6 +9,7 @@ After you have finished cloning the repo, install all of the dependencies `npm i
 
 Create a `development.env` and `production.env` file in the root directory
   * Inside `production.env` add `PUBLIC_URL="/purk-web"` and leave the `development.env` file empty.
+  * See Tim for Google API key and GOOGLE_API_KEY="..." to both files
 
 Create a file `Firebase.js` inside `src/` and add the following content. 
 

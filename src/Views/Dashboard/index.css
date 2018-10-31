@@ -1,0 +1,4 @@
+.DashboardView {
+  display: "flex";
+  flex-direction: "column";
+}
