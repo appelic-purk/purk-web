@@ -15,6 +15,7 @@ import ParkIcon from "@material-ui/icons/LocalParking";
 import styled from "styled-components";
 import "@trendmicro/react-sidenav/dist/react-sidenav.css";
 import * as firebase from "firebase";
+import ClickOutside from "react-click-outside";
 
 const NavHeader = styled.div`
   display: ${props => (props.expanded ? "block" : "none")};
@@ -73,7 +74,12 @@ class Sidebar extends Component {
     const { classes } = this.props;
     const { selected, expanded, displayName, photoURL } = this.state;
     return <div>
-        <SideNav onSelect={this.onSelect} onToggle={this.onToggle}>
+      <ClickOutside
+        onClickOutside={() => {
+          this.setState({ expanded: false });
+        }}
+      >
+        <SideNav onSelect={this.onSelect} onToggle={this.onToggle} expanded={this.state.expanded}>
           <SideNav.Toggle />
           <NavHeader expanded={expanded}>
             <NavTitle>Purk</NavTitle>
@@ -110,7 +116,8 @@ class Sidebar extends Component {
             </NavItem>
           </SideNav.Nav>
         </SideNav>
-      </div>;
+      </ClickOutside>
+    </div>;
   }
 }
 
