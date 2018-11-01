@@ -9,7 +9,6 @@ class Dashboard extends Component {
   }
   render() {
     return <div className="Dashboard">
-        <h1>Dashboard view!</h1>
         <MapContainer />
         <button onClick={() => {
             signOutUser();

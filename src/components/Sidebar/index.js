@@ -16,6 +16,8 @@ import styled from "styled-components";
 import "@trendmicro/react-sidenav/dist/react-sidenav.css";
 import * as firebase from "firebase";
 import ClickOutside from "react-click-outside";
+import history from "./../../history/history";
+import { Route } from "react-router-dom";
 
 const NavHeader = styled.div`
   display: ${props => (props.expanded ? "block" : "none")};
@@ -57,7 +59,9 @@ class Sidebar extends Component {
   };
 
   onSelect = selected => {
+    const to = '/' + selected;
     this.setState({ selected: selected });
+    history.push(to);
   };
   onToggle = expanded => {
     this.setState({ expanded: expanded });
@@ -79,43 +83,45 @@ class Sidebar extends Component {
           this.setState({ expanded: false });
         }}
       >
-        <SideNav onSelect={this.onSelect} onToggle={this.onToggle} expanded={this.state.expanded}>
-          <SideNav.Toggle />
-          <NavHeader expanded={expanded}>
-            <NavTitle>Purk</NavTitle>
-            <NavSubTitle>Menu</NavSubTitle>
-          </NavHeader>
-          {expanded && <NavInfoPane>
-            <img className={classes.profileImage} src={photoURL} />
-            <div className={classes.displayName}>{displayName}</div>
-          </NavInfoPane>}
-          <SideNav.Nav defaultSelected="home">
-            <NavItem eventKey="home">
-              <NavIcon style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
-                <HomeIcon />
-              </NavIcon>
-              <NavText>Home</NavText>
-            </NavItem>
-            <NavItem eventKey="myAccount">
-            <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                <AccountIcon />
-              </NavIcon>
-              <NavText>My Account</NavText>
-            </NavItem>
-            <NavItem eventKey="myListings">
-            <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                <ListIcon />
-              </NavIcon>
-              <NavText>My Listings</NavText>
-            </NavItem>
-            <NavItem eventKey="myReservations">
-            <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                <ParkIcon />
-              </NavIcon>
-              <NavText>My Reservations</NavText>
-            </NavItem>
-          </SideNav.Nav>
-        </SideNav>
+        <Route render={({ location, history }) => (
+          <SideNav onSelect={this.onSelect} onToggle={this.onToggle} expanded={this.state.expanded}>
+            <SideNav.Toggle />
+            <NavHeader expanded={expanded}>
+              <NavTitle>Purk</NavTitle>
+              <NavSubTitle>Menu</NavSubTitle>
+            </NavHeader>
+            {expanded && <NavInfoPane>
+              <img className={classes.profileImage} src={photoURL} />
+              <div className={classes.displayName}>{displayName}</div>
+            </NavInfoPane>}
+            <SideNav.Nav defaultSelected="home">
+              <NavItem eventKey="Dashboard">
+                <NavIcon style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+                  <HomeIcon />
+                </NavIcon>
+                <NavText>Home</NavText>
+              </NavItem>
+              <NavItem eventKey="Account">
+              <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <AccountIcon />
+                </NavIcon>
+                <NavText>My Account</NavText>
+              </NavItem>
+              <NavItem eventKey="Listings">
+              <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <ListIcon />
+                </NavIcon>
+                <NavText>My Listings</NavText>
+              </NavItem>
+              <NavItem eventKey="Reservations">
+              <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <ParkIcon />
+                </NavIcon>
+                <NavText>My Reservations</NavText>
+              </NavItem>
+            </SideNav.Nav>
+          </SideNav>
+        )} />
       </ClickOutside>
     </div>;
   }
