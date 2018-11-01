@@ -4,12 +4,10 @@ import { GoogleApiWrapper, Map } from 'google-maps-react';
 
 export class MapContainer extends Component {
   render() {
-    const style = { maxWidth: "100vw", maxHeight: "100vh" };
-    return (
-      <div style={style}>
-        <Map google={this.props.google} />
-      </div>
-    );
+    const style = { maxWidth: "100vw", maxHeight: "100vh", marginLeft: "64px" };
+    return <div>
+        <Map google={this.props.google} style={style} zoom={15} />
+      </div>;
   }
 }
 

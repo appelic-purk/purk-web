@@ -8,13 +8,9 @@ class DashboardView extends Component {
     super(props);
   }
   render() {
-    return <div>
-        <div>
-          <Sidebar />
-        </div>
-        <div>
-        <Dashboard />
-        </div>
+    return <div className="DashboardView">
+      <Sidebar />
+      <Dashboard />
     </div>;
   }
 }
