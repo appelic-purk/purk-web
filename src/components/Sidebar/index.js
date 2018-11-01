@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import SideNav, {
-  Toggle,
-  Nav,
   NavItem,
   NavIcon,
   NavText
@@ -18,38 +16,6 @@ import * as firebase from "firebase";
 import ClickOutside from "react-click-outside";
 import history from "./../../history/history";
 import { Route } from "react-router-dom";
-
-const NavHeader = styled.div`
-  display: ${props => (props.expanded ? "block" : "none")};
-  white-space: nowrap;
-  background-color: #fc7f5f;
-  color: #fff;
-  > * {
-    color: inherit;
-    background-color: inherit;
-  }
-`;
-
-// height: 20px + 10px + 10px = 40px
-const NavTitle = styled.div`
-  font-size: 2em;
-  line-height: 20px;
-  padding: 10px 0;
-`;
-
-// height: 20px + 4px = 24px;
-const NavSubTitle = styled.div`
-  font-size: 1em;
-  line-height: 20px;
-  padding-bottom: 4px;
-`;
-
-const NavInfoPane = styled.div`
-  float: left;
-  width: 100%;
-  padding: 10px 20px;
-  background-color: #ffa38b;
-`;
 
 class Sidebar extends Component {
   state = {
@@ -78,52 +44,48 @@ class Sidebar extends Component {
     const { classes } = this.props;
     const { selected, expanded, displayName, photoURL } = this.state;
     return <div>
-      <ClickOutside
-        onClickOutside={() => {
-          this.setState({ expanded: false });
-        }}
-      >
-        <Route render={({ location, history }) => (
-          <SideNav onSelect={this.onSelect} onToggle={this.onToggle} expanded={this.state.expanded}>
-            <SideNav.Toggle />
-            <NavHeader expanded={expanded}>
-              <NavTitle>Purk</NavTitle>
-              <NavSubTitle>Menu</NavSubTitle>
-            </NavHeader>
-            {expanded && <NavInfoPane>
-              <img className={classes.profileImage} src={photoURL} />
-              <div className={classes.displayName}>{displayName}</div>
-            </NavInfoPane>}
-            <SideNav.Nav defaultSelected="home">
-              <NavItem eventKey="Dashboard">
-                <NavIcon style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
-                  <HomeIcon />
-                </NavIcon>
-                <NavText>Home</NavText>
-              </NavItem>
-              <NavItem eventKey="Account">
-              <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  <AccountIcon />
-                </NavIcon>
-                <NavText>My Account</NavText>
-              </NavItem>
-              <NavItem eventKey="Listings">
-              <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  <ListIcon />
-                </NavIcon>
-                <NavText>My Listings</NavText>
-              </NavItem>
-              <NavItem eventKey="Reservations">
-              <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  <ParkIcon />
-                </NavIcon>
-                <NavText>My Reservations</NavText>
-              </NavItem>
-            </SideNav.Nav>
-          </SideNav>
-        )} />
-      </ClickOutside>
-    </div>;
+        <ClickOutside onClickOutside={() => {
+            this.setState({ expanded: false });
+          }}>
+          <Route render={({ location, history }) => <SideNav className={classes.sidebar} onSelect={this.onSelect} onToggle={this.onToggle} expanded={this.state.expanded}>
+                <SideNav.Toggle />
+                <div className={expanded ? classes.navHeaderExpanded : classes.navHeaderNotExpanded}>
+                  <div className={classes.navTitle}>Purk</div>
+                  <div className={classes.navSubTitle}>Menu</div>
+                </div>
+                {expanded ? <div className={classes.navInfoPane}>
+                    <img className={classes.profileImage} src={photoURL} />
+                    <div className={classes.displayName}>{displayName}</div>
+                  </div> : null}
+                <SideNav.Nav defaultSelected="home">
+                  <NavItem eventKey="Dashboard">
+                    <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                      <HomeIcon />
+                    </NavIcon>
+                    <NavText>Home</NavText>
+                  </NavItem>
+                  <NavItem eventKey="Account">
+                    <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                      <AccountIcon />
+                    </NavIcon>
+                    <NavText className={classes.navText}>My Account</NavText>
+                  </NavItem>
+                  <NavItem eventKey="Listings">
+                    <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                      <ListIcon />
+                    </NavIcon>
+                    <NavText>My Listings</NavText>
+                  </NavItem>
+                  <NavItem eventKey="Reservations">
+                    <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                      <ParkIcon />
+                    </NavIcon>
+                    <NavText>My Reservations</NavText>
+                  </NavItem>
+                </SideNav.Nav>
+              </SideNav>} />
+        </ClickOutside>
+      </div>;
   }
 }
 
