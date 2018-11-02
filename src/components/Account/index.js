@@ -21,8 +21,8 @@ class AccountInformation extends Component {
     });
   }
 
-  handleChange(event) {
-    this.setState(event.target.value);
+  handleChange(event, name) {
+    this.setState( { [name]: event.target.value });
   }
   render() {
     let { classes } = this.props;
@@ -36,13 +36,16 @@ class AccountInformation extends Component {
         <div className={classes.form}>
           <div>
             <TextField
-              onChange={this.handleChange}
+              name={"displayName"}
+              onChange={(e)=>{this.handleChange(e, "displayName")}}
               className={classes.textField}
               fullWidth
               label={"Display Name"}
               value={this.state.displayName}
             />
             <TextField
+              name={"email"}
+              onChange={(e) => { this.handleChange(e, "email") }}
               onChange={this.handleChange}
               className={classes.textField}
               fullWidth
