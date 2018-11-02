@@ -42,7 +42,7 @@ class Sidebar extends Component {
 
   render() {
     const { classes } = this.props;
-    const { selected, expanded, displayName, photoURL } = this.state;
+    const { expanded, displayName, photoURL } = this.state;
     return <div>
         <ClickOutside onClickOutside={() => {
             this.setState({ expanded: false });

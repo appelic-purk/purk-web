@@ -17,6 +17,7 @@
     "react-click-outside": "github:tj/react-click-outside",
     "react-code-input": "^3.8.0",
     "react-dom": "^16.5.2",
+    "react-dropdown": "^1.6.2",
     "react-google-button": "^0.5.3",
     "react-image-crop": "^6.0.0",
     "react-phone-number-input": "^2.2.11",

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Sidebar from "./../../components/Sidebar/index";
+import AccountInformation from "../../components/Account";
+
 
 class AccountView extends Component {
   render() {
@@ -8,7 +10,7 @@ class AccountView extends Component {
         <Sidebar />
       </div>
       <div>
-        <h1>My Account</h1>
+        <AccountInformation />
       </div>
     </div>;
   }

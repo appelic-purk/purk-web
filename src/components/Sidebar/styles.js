@@ -12,7 +12,8 @@ const styles = {
     color: "white"
   },
   sidebar: {
-    backgroundColor: "#ffa38b"
+    position: "fixed",
+    backgroundColor: "#ffa38b",
   },
   navInfoPane: {
     float: "left",
