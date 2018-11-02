@@ -33,7 +33,7 @@ class Sidebar extends Component {
     this.setState({ expanded: expanded });
   };
 
-  componentWillMount() {
+  componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({ photoURL: user.photoURL });
       this.setState({ displayName: user.displayName });

@@ -8,7 +8,8 @@ const styles = {
   },
   form: {
     width: "80%",
-    height: "100%"
+    height: "100%",
+    marginBottom: "2%"
   },
   formTitle: {
     textAlign: "left",
@@ -41,7 +42,8 @@ const styles = {
     borderBottom: "1px solid"
   },
   datatable: {
-    marginLeft: "3%"
+    marginLeft: "1% 3%",
+    marginBottom: "2%"
   }
 };
 

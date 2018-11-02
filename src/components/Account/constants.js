@@ -70,4 +70,11 @@ export const vehicleColumns = [
   { name: "carBrand", label: "Car Brand", type: "text" },
   { name: "carModel", label: "Car Model", type: "text" },
   { name: "carYear", label: "Car Year", type: "text" }
-]
+];
+
+export const addressesColumns = [
+  { name: "street", label: "Street", type: "text" },
+  { name: "city", label: "City", type: "text" },
+  { name: "zipcode", label: "Zipcode", type: "text" },
+  { name: "state", label: "State", type: "text" },
+];

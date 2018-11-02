@@ -4,39 +4,73 @@ import { withStyles } from "@material-ui/core/styles";
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import styles from "./styles.js";
-import { stateOptions, countryOptions, vehicleColumns } from "./constants.js";
+import { vehicleColumns, addressesColumns } from "./constants.js";
 import DataTable from "../../widgets/DataTable/index";
+import * as firebase from "firebase";
+import { Button } from "@material-ui/core";
 
 class AccountInformation extends Component {
+  state = {
+    displayName: "",
+    email: ""
+  }
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({ email: user.email });
+      this.setState({ displayName: user.displayName });
+    });
+  }
+
+  handleChange(event) {
+    this.setState(event.target.value);
+  }
   render() {
     let { classes } = this.props;
 
-    return <div className={classes.root}>
+    return (
+      <div className={classes.root}>
         <div>
           <h1>My Account</h1>
           <span>View and edit your profile information below.</span>
         </div>
         <div className={classes.form}>
           <div>
-            <TextField className={classes.textField} fullWidth label={"Display Name"} />
-            <TextField className={classes.textField} fullWidth label={"Email"} />
+            <TextField
+              onChange={this.handleChange}
+              className={classes.textField}
+              fullWidth
+              label={"Display Name"}
+              value={this.state.displayName}
+            />
+            <TextField
+              onChange={this.handleChange}
+              className={classes.textField}
+              fullWidth
+              label={"Email"}
+              value={this.state.email}
+            />
           </div>
           <div>
             <div className={classes.formTitle}>Address</div>
-              <TextField className={classes.textField} fullWidth label={"Street"} />
-            <div className={classes.split}>
-              <div className={classes.splitContent}>
-                <TextField fullWidth label={"City"} />
-              </div>
-              <div className={classes.splitContent}>
-                <TextField fullWidth label={"Zipcode"} />
-              </div>
-              <div className={classes.splitContentDropdown}>
-                <Dropdown className={classes.dropdownRoot} options={stateOptions} value={null} placeholder="State" controlClassName={classes.dropdownControl} />
-              </div>
-              <div className={classes.splitContentDropdown}>
-                <Dropdown className={classes.dropdownRoot} options={countryOptions} value={null} placeholder="Country" controlClassName={classes.dropdownControl} />
-              </div>
+            <div className={classes.datatable}>
+              <DataTable
+                name={"Addresses"}
+                tableName={"Addresses"}
+                value={[]}
+                handleChange={e => {
+                  console.log("account info: ", e);
+                }}
+                presentOnly={false}
+                data={[
+                  {
+                    street: "798 Alcosta Drive",
+                    city: "Milpitas",
+                    zipcode: "95035",
+                    state: "CA"
+                  }
+                ]}
+                columns={addressesColumns}
+              />
             </div>
           </div>
           <div>
@@ -46,7 +80,9 @@ class AccountInformation extends Component {
                 name={"Vehicles"}
                 tableName={"Vehicles"}
                 value={[]}
-                handleChange={(e) => { console.log("account info: ", e) }}
+                handleChange={e => {
+                  console.log("account info: ", e);
+                }}
                 presentOnly={false}
                 data={[
                   {
@@ -56,11 +92,14 @@ class AccountInformation extends Component {
                     carYear: "2013"
                   }
                 ]}
-                columns={vehicleColumns} />
+                columns={vehicleColumns}
+              />
             </div>
           </div>
+          <Button variant="outlined">Update</Button>
         </div>
-      </div>;
+      </div>
+    );
   }
 }
 
