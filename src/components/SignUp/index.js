@@ -3,7 +3,7 @@ import './index.css';
 import EmailSignUp from './emailSignUp/index';
 import SocialMediaSignUp from './socialMediaSignUp/index';
 
-class Login extends Component {
+class SignUp extends Component {
   render() {
     return <div className="SignUp">
         <div className="title">
@@ -29,4 +29,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default SignUp;

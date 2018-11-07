@@ -4,6 +4,7 @@ import SignUpView from "./../Views/SignUp/SignUp";
 import DashboardView from "./../Views/Dashboard/Dashboard";
 import PhoneVerificationView from '../Views/PhoneVerification/PhoneVerification';
 import ProfileSetupView from '../Views/ProfileSetup/ProfileSetup';
+import AccountView from "../Views/Account/Account";
 
 const Routes = () => {
   let public_url = (process.env.REACT_APP_PUBLIC_URL) ? process.env.REACT_APP_PUBLIC_URL : "";
@@ -32,6 +33,10 @@ const Routes = () => {
       {
         path: "/welcome",
         component: ProfileSetupView
+      },
+      {
+        path: "/account",
+        component: AccountView
       }
     ]
   );

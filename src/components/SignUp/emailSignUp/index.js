@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import history from './../../../history/history';
+import history from "./../../../history/history";
 import './index.css';
 import { createUserWithEmail } from "./../../../Controllers/Signup/signupController";
 import {
@@ -66,7 +63,7 @@ class EmailSignUp extends Component {
           </MuiThemeProvider>
         </div>
         <div className="row">
-          <p>Already have an account? <a onClick={()=>{history.push('/login')}}>Login</a></p>
+        <p>Already have an account? <a onClick={() => { history.push("/Login") }}>Login</a></p>
         </div>
       </div>;
   }

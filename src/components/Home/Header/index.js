@@ -10,7 +10,6 @@ import './index.css';
 import Logo from './../../../images/PurkLogoSalmon.png'
 import SearchBar from "material-ui-search-bar";
 import history from './../../../history/history';
-import { Link } from 'react-router-dom';
 
 const theme = createMuiTheme({
     palette: {
