@@ -1,0 +1,10 @@
+.ContactPopUp {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    color: #fff;
+    background-image: radial-gradient(#f992a6, #fa9);
+    min-height: 100%;
+    padding: 1%;
+    align-items: center;
+}

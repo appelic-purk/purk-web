@@ -21,4 +21,13 @@
   width: 50%;
   display: flex;
   flex-direction: column;
+
 }
+
+.Footer .col3 {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 150px;
+}
+

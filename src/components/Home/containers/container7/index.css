@@ -1,0 +1,117 @@
+.Container7 {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #777777;
+
+  background:
+    url('./../../../../images/apple_keyboard_mouse.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 105vh;
+    background-position: 50% 50%;
+}
+
+.title .container7_title {
+  font-size: 7vh;
+  padding-top: 10px;
+  padding-left: 150px;
+  text-align: left;
+}
+
+.description {
+    font-size: 3vh;
+}
+.Container7 .row1 {
+  flex: 1
+}
+
+.Container7 .row2 {
+  flex: 3;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.Container7 .row2 .col {
+  width: 32%; 
+  align-self: center;
+}
+
+.Container7 .row3 {
+    font-size:4vh;
+    color: #000000;
+}
+
+.Container7 .line {
+    font-size: 9vh;
+    margin-top: -50px;
+    margin-bottom: 10px;
+}
+.Container7 .name {
+    color: #ff91be;
+    padding-left: 80px;
+    text-align: right;
+}
+
+.Container7 .email {
+    color: #ff91be;
+    padding-left: 75px;
+    text-align: left;
+}
+
+.Container7 .pn {
+    color: #ff91be;
+    padding-right: 12px;
+    text-align: left;
+}
+
+.Container7 .msg {
+    color: #ff91be;
+    padding-left: 40px;
+    text-align: left;
+}
+
+.Container7 .name-input {
+    width: 400px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px;
+    resize: none;
+}
+
+.Container7 .email-input {
+    width: 400px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px;
+    resize: none;
+}
+
+.Container7 .phone-input {
+    width: 400px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px;
+    resize: none;
+}
+
+.Container7 .feedback-input{
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+    border: 1px;
+    resize: none;
+}
+
+.Container7 .btn {
+    width: 75px;
+    height: 30px;
+    background-color: #ff91be;
+    border-radius: 5px;
+    font-size: 2vh;
+    color: #ffffff;
+}
+.Container7 .img {
+    padding: 0;
+}
