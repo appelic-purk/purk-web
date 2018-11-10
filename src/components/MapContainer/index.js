@@ -1,12 +1,20 @@
 import React, { Component } from "react";
-import { GoogleApiWrapper, Map } from 'google-maps-react';
-// import Map from "./Map/index";
+import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
 
 export class MapContainer extends Component {
   render() {
-    const style = { maxWidth: "100vw", maxHeight: "100vh", marginLeft: "64px" };
+    let { center, address } = this.props;
     return <div>
-        <Map google={this.props.google} style={style} zoom={15} />
+      <Map
+        google={this.props.google}
+        zoom={15}
+        containerStyle={{ width: '100%', height: '100vh', position: 'relative' }}
+        center={center}>
+          <Marker
+            title={address}
+            name={address}
+            position={center} />
+        </Map>
       </div>;
   }
 }
