@@ -18,7 +18,7 @@ const styles = {
     marginTop: "5%"
   },
   textField: {
-    margin: "1% 3%"
+    margin: "1% 0%"
   },
   split: {
     display: "flex",

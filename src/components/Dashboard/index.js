@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { signOutUser, checkUserCredentials, testAddresses } from "./../../Controllers/Dashboard/dashboardController";
+import { checkUserCredentials, testAddresses } from "./../../Controllers/Dashboard/dashboardController";
 import { withStyles } from "@material-ui/core/styles";
 import MapContainer from '../MapContainer';
 import SearchBar from "material-ui-search-bar";
@@ -16,12 +16,18 @@ class Dashboard extends Component {
     
     this.state = {
       center: { lat: 37.77, lng: 122.41 },
-      addresses: []
+      addresses: [],
+      activeMarker: {},
+      showInfoWindow: false
     }
   }
   
   componentDidMount() {
     checkUserCredentials();
+  }
+
+  handleSearchClick = (address) => {  
+    this.setState({ activeMarker: address} );
   }
   
   handleSearchRequest = (address) => {
@@ -40,28 +46,31 @@ class Dashboard extends Component {
               nearByAddresses.push(address);
             }
           });
-          this.setState({ addresses: nearByAddresses })
+          this.setState({ addresses: nearByAddresses, activeMarker: {} })
         }
       );
     }, error => {
       coordinates = false;
-      this.setState({ centerAddress: address, center: coordinates })
+      this.setState({ centerAddress: address, center: coordinates, activeMarker: {} })
     });
   }
 
   render() {
-    let { center, centerAddress, addresses } = this.state;
+    let { center, centerAddress, addresses, activeMarker } = this.state;
     let { classes } = this.props;
     return <div className={classes.root}>
         <div className={classes.column}>
           <SearchBar onRequestSearch={this.handleSearchRequest} placeholder={'Try "Westwood"'} className={classes.searchBar} />
-          <SearchResult addresses={addresses} />
-            <button onClick={() => { signOutUser() }}>
-              sign out
-            </button>
+          <SearchResult onClick={this.handleSearchClick} addresses={addresses} />
         </div>
         <div className={classes.column}>
-          <MapContainer centerAddress={centerAddress} center={center} className={classes.mapContainer} addresses={addresses} />
+          <MapContainer
+            centerAddress={centerAddress}
+            center={center}
+            className={classes.mapContainer}
+            addresses={addresses}
+            activeMarker={activeMarker}
+            />
         </div>
       </div>;
   }

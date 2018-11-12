@@ -11,13 +11,17 @@ function ListItemLink(props) {
 }
 
 class SearchResult extends Component {
+
+  onClick(address) {
+    this.props.onClick(address)
+  }
   render() {
     let { addresses } = this.props;
     return <div>
         <h1>Search Results</h1>
         <List component="nav">
           {addresses.map((address) => {
-            return <ListItem button key={address.name}>
+            return <ListItem button key={address.name} onClick={(e)=>{this.onClick(address)}}>
                 <ListItemText primary={address.label} secondary={address.address} />
               </ListItem>;
           })}

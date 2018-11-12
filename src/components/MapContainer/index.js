@@ -1,10 +1,25 @@
 import React, { Component } from "react";
-import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
-import { insertMarkers } from "./../../Controllers/MapContainer/mapContainerController";
+import { GoogleApiWrapper, Map, Marker , InfoWindow} from 'google-maps-react';
 
 export class MapContainer extends Component {
+  onMarkerClick = (props, marker, e) => {
+    console.log('marker',marker);
+    console.log('marker2', <Marker
+      title={this.props.centerAddress}
+      name={this.props.centerAddress}
+      position={this.props.center} />)
+  }
   render() {
-    let { center, centerAddress, addresses } = this.props;
+    let { center, centerAddress, addresses, activeMarker } = this.props;
+    let defaultIcon = {
+      url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|0091ff|40|_|%E2%80%A2', // url
+      scaledSize: new this.props.google.maps.Size(20, 30), // scaled size
+    };
+
+    let highlightedIcon = {
+      url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|FFFF24|40|_|%E2%80%A2', // url
+      scaledSize: new this.props.google.maps.Size(20, 30), // scaled size
+    };
     return <div>
       <Map
         google={this.props.google}
@@ -18,6 +33,7 @@ export class MapContainer extends Component {
           {addresses.map((address) => {
             return(
               <Marker
+              icon={activeMarker === address ? highlightedIcon : defaultIcon}
               key={address.name}
               title={address.label}
               name={address.name}

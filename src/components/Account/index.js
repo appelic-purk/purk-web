@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import { withStyles } from "@material-ui/core/styles";
-import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import styles from "./styles.js";
 import { vehicleColumns, addressesColumns } from "./constants.js";
 import DataTable from "../../widgets/DataTable/index";
 import * as firebase from "firebase";
 import { Button } from "@material-ui/core";
+import { signOutUser } from "./../../Controllers/Account/accountController";
 
 class AccountInformation extends Component {
   state = {
@@ -101,6 +101,9 @@ class AccountInformation extends Component {
           </div>
           <Button variant="outlined">Update</Button>
         </div>
+        <Button onClick={() => { signOutUser() }}>
+          sign out
+          </Button>
       </div>
     );
   }

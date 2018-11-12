@@ -1,7 +1,6 @@
 import React from "react";
 import history from "./../../history/history";
 import * as firebase from "firebase";
-import firebaseApp from "./../../Firebase";
 
 export const checkUserCredentials = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -13,21 +12,6 @@ export const checkUserCredentials = () => {
     }
   });
 }
-
-export const signOutUser = () => {
-  firebaseApp
-    .auth()
-    .signOut()
-    .then(function() {
-      console.log("signed out successfully");
-      history.push("/login");
-      // Sign-out successful.
-    })
-    .catch(function(error) {
-      // An error happened.
-      console.log("sign out unsuccessful");
-    });
-};
 
 export const testAddresses = [
   { key: "1", name: "testAddress1", address: "807 Alcosta Drive, Milpitas, CA, 95035", label: "Clean Parking Spot", coordinates: { lat: 37.440240, lng: -121.892750 }},
