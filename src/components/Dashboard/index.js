@@ -17,8 +17,9 @@ class Dashboard extends Component {
     this.state = {
       center: { lat: 37.77, lng: 122.41 },
       addresses: [],
-      activeMarker: {},
-      showInfoWindow: false
+      activeAddress: {},
+      showInfoWindow: false,
+      activeStep: 0
     }
   }
   
@@ -27,7 +28,11 @@ class Dashboard extends Component {
   }
 
   handleSearchClick = (address) => {  
-    this.setState({ activeMarker: address} );
+    this.setState({ activeAddress: address, activeStep: 1 } );
+  }
+
+  handleMarkerClick = (address) => {
+    this.setState({ activeAddress: address, activeStep: 1 });
   }
   
   handleSearchRequest = (address) => {
@@ -46,30 +51,40 @@ class Dashboard extends Component {
               nearByAddresses.push(address);
             }
           });
-          this.setState({ addresses: nearByAddresses, activeMarker: {} })
+          this.setState({ addresses: nearByAddresses, activeAddress: {} })
         }
       );
     }, error => {
       coordinates = false;
-      this.setState({ centerAddress: address, center: coordinates, activeMarker: {} })
+      this.setState({ centerAddress: address, center: coordinates, activeAddress: {} })
     });
   }
 
+  handleBackClick = () => {
+    this.setState({ activeStep: 0, activeAddress: 0 })
+  }
+
   render() {
-    let { center, centerAddress, addresses, activeMarker } = this.state;
+    let { center, centerAddress, addresses, activeAddress, activeStep } = this.state;
     let { classes } = this.props;
     return <div className={classes.root}>
         <div className={classes.column}>
           <SearchBar onRequestSearch={this.handleSearchRequest} placeholder={'Try "Westwood"'} className={classes.searchBar} />
-          <SearchResult onClick={this.handleSearchClick} addresses={addresses} />
+          <SearchResult
+            onClick={this.handleSearchClick}
+            addresses={addresses}
+            activeStep={activeStep}
+            onBackClick={this.handleBackClick}
+            selectedAddress={activeAddress} />
         </div>
         <div className={classes.column}>
           <MapContainer
+            onMarkerClick={this.handleMarkerClick}
             centerAddress={centerAddress}
             center={center}
             className={classes.mapContainer}
             addresses={addresses}
-            activeMarker={activeMarker}
+            activeMarker={activeAddress}
             />
         </div>
       </div>;

@@ -2,12 +2,8 @@ import React, { Component } from "react";
 import { GoogleApiWrapper, Map, Marker , InfoWindow} from 'google-maps-react';
 
 export class MapContainer extends Component {
-  onMarkerClick = (props, marker, e) => {
-    console.log('marker',marker);
-    console.log('marker2', <Marker
-      title={this.props.centerAddress}
-      name={this.props.centerAddress}
-      position={this.props.center} />)
+  onMarkerClick = (address) => {
+    this.props.onMarkerClick(address)
   }
   render() {
     let { center, centerAddress, addresses, activeMarker } = this.props;
@@ -33,6 +29,7 @@ export class MapContainer extends Component {
           {addresses.map((address) => {
             return(
               <Marker
+              onClick={(e)=>{this.onMarkerClick(address)}}
               icon={activeMarker === address ? highlightedIcon : defaultIcon}
               key={address.name}
               title={address.label}
