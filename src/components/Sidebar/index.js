@@ -70,11 +70,11 @@ class Sidebar extends Component {
                     </NavIcon>
                     <NavText className={classes.navText}>My Account</NavText>
                   </NavItem>
-                  <NavItem eventKey="Listings">
+                  <NavItem eventKey="listSpot">
                     <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                       <ListIcon />
                     </NavIcon>
-                    <NavText>My Listings</NavText>
+                    <NavText>List a Spot</NavText>
                   </NavItem>
                   <NavItem eventKey="Reservations">
                     <NavIcon style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>

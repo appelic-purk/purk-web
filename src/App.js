@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import HomeView from "./Views/Home/Home";
-import LoginView from "./Views/Login/Login";
-import history from "./history/history";
 import Routes from "./routes/routes"
 import { createStore } from "redux";
 import reducer from "./reducers"

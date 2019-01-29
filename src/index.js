@@ -5,12 +5,19 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Router } from "react-router-dom";
 import history from './history/history';
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import Theme from "./theme.js";
 
 require("dotenv").load();
 
-ReactDOM.render((
-  <Router history={history}>
-    <App />
-  </Router>
-), document.getElementById('root'));
+const theme = createMuiTheme(Theme);
+
+ReactDOM.render(
+  <MuiThemeProvider theme={theme}>
+    <Router history={history}>
+      <App />
+    </Router>
+  </MuiThemeProvider>,
+  document.getElementById("root")
+);
 registerServiceWorker();
