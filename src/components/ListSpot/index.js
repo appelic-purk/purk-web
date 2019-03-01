@@ -9,6 +9,8 @@ import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { withStyles } from "@material-ui/core/styles";
+import styles from "./styles";
 
 class ListSpot extends Component {
   state = {
@@ -32,9 +34,10 @@ class ListSpot extends Component {
         <div>
           <div>
             <TextField
+              className={this.props.classes.addressField}
               id="address"
               label="Address"
-              // fullWidth={true}
+              fullWidth={true}
               placeholder="1 Hacker Way, Menlo Park"
               value={this.state.address}
               onChange={this.onAddressChange}
@@ -213,8 +216,9 @@ class ListSpot extends Component {
   render() {
     const steps = ["Spot Information", "Scheduling", "Payment Information"];
     const { activeStep } = this.state;
+    let { classes } = this.props;
     return (
-      <div>
+      <div className={classes.root}>
         <Stepper activeStep={activeStep} alternativeLabel>
           {steps.map(label => (
             <Step key={label}>
@@ -250,4 +254,4 @@ class ListSpot extends Component {
   }
 }
 
-export default ListSpot
+export default withStyles(styles)(ListSpot)

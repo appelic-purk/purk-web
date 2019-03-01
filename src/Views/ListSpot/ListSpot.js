@@ -8,7 +8,7 @@ class ListSpotView extends Component {
       <div>
         <Sidebar />
       </div>
-      <div>
+      <div className="main">
         <ListSpot />
       </div>
     </div>
