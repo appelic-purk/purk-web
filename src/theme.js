@@ -5,7 +5,12 @@ const Theme = {
         color: "black"
       },
       containedPrimary: {
-        color: 'white'
+        color: "white"
+      }
+    },
+    MuiCheckbox: {
+      root: {
+        color: "#ffa38b"
       }
     }
   },
