@@ -1,9 +1,7 @@
-const styles = {
+const spotInformationStyles = {
   root: {
     display: "flex",
-    flexDirection: "column",
-    width: "100%-64px",
-    marginLeft: "64px"
+    flexDirection: "column"
   },
   inputElement: {
     margin: "1%"
@@ -13,4 +11,4 @@ const styles = {
   }
 };
 
-  export default styles;
+export default spotInformationStyles;

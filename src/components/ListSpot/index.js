@@ -3,24 +3,30 @@ import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormLabel from "@material-ui/core/FormLabel";
-import FormControl from "@material-ui/core/FormControl";
-import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { withStyles } from "@material-ui/core/styles";
+import SpotInformation from "./steps/spotInformation";
 import styles from "./styles";
 
 class ListSpot extends Component {
   state = {
     activeStep: 0,
     address: "",
-    gated: false
+    numSpots: 1,
+    gated: false,
+    lit: false,
+    covered: false,
+    xlspot: false,
+    charging: false,
+    security: false,
+    driveway: false,
+    parkingLot: false,
+    homeGarage: false,
+    unpavedLot: false,
+    parkingGarage: false
   };
 
-  onAddressChange = (event) => {
-    this.setState({ address: event.target.value });
+  onTextfieldChange = name => event => {
+    this.setState({ [name]: event.target.value });
   }
 
   onCheckboxChange = name => event => {
@@ -31,161 +37,23 @@ class ListSpot extends Component {
   switch (stepIndex) {
     case 0:
       return (
-        <div>
-          <div>
-            <TextField
-              className={this.props.classes.addressField}
-              id="address"
-              label="Address"
-              fullWidth={true}
-              placeholder="1 Hacker Way, Menlo Park"
-              value={this.state.address}
-              onChange={this.onAddressChange}
-            />
-          </div>
-          <FormControl>
-            <FormLabel component="legend">Amenities</FormLabel>
-            <FormGroup>
-              <div>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      id="lit"
-                      checked={this.state.lit}
-                      onChange={this.onCheckboxChange("lit")}
-                    />
-                  }
-                  label="Lit"
-                />
-              </div>
-              <div>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      id="gated"
-                      checked={this.state.gated}
-                      onChange={this.onCheckboxChange("gated")}
-                    />
-                  }
-                  label="Gated"
-                />
-              </div>
-              <div>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      id="covered"
-                      checked={this.state.covered}
-                      onChange={this.onCheckboxChange("covered")}
-                    />
-                  }
-                  label="Covered"
-                />
-              </div>
-              <div>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      id="xlspot"
-                      checked={this.state.xlspot}
-                      onChange={this.onCheckboxChange("xlspot")}
-                    />
-                  }
-                  label="XL Spot"
-                />
-              </div>
-              <div>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      id="charging"
-                      checked={this.state.charging}
-                      onChange={this.onCheckboxChange("charging")}
-                    />
-                  }
-                  label="Charging"
-                />
-              </div>
-              <div>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      id="security"
-                      checked={this.state.security}
-                      onChange={this.onCheckboxChange("security")}
-                    />
-                  }
-                  label="Security"
-                />
-              </div>
-            </FormGroup>
-          </FormControl>
-          <FormControl>
-            <FormLabel component="legend">Type of Spot</FormLabel>
-            <FormGroup>
-              <div>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      id="driveway"
-                      checked={this.state.driveway}
-                      onChange={this.onCheckboxChange("driveway")}
-                    />
-                  }
-                  label="Driveway"
-                />
-              </div>
-              <div>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      id="parkingLot"
-                      checked={this.state.parkingLot}
-                      onChange={this.onCheckboxChange("parkingLot")}
-                    />
-                  }
-                  label="Parking Lot"
-                />
-              </div>
-              <div>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      id="homeGarage"
-                      checked={this.state.homeGarage}
-                      onChange={this.onCheckboxChange("homeGarage")}
-                    />
-                  }
-                  label="Home Garage"
-                />
-              </div>
-              <div>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      id="unpavedLot"
-                      checked={this.state.unpavedLot}
-                      onChange={this.onCheckboxChange("unpavedLot")}
-                    />
-                  }
-                  label="Unpaved Lot"
-                />
-              </div>
-              <div>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      id="parkingGarage"
-                      checked={this.state.parkingGarage}
-                      onChange={this.onCheckboxChange("parkingGarage")}
-                    />
-                  }
-                  label="parkingGarage"
-                />
-              </div>
-            </FormGroup>
-          </FormControl>
-        </div>
+        <SpotInformation
+          address={this.state.address}
+          onTextfieldChange={this.onTextfieldChange}
+          numSpots={this.state.numSpots}
+          onCheckboxChange={this.onCheckboxChange}
+          lit={this.state.lit}
+          gated={this.state.gated}
+          covered={this.state.covered}
+          xlspot={this.state.xlspot}
+          charging={this.state.charing}
+          security={this.state.security}
+          driveway={this.state.driveway}
+          parkingLot={this.state.parkingLot}
+          homeGarage={this.state.homeGarage}
+          unpavedLot={this.state.unpavedLot}
+          parkingGarage={this.state.parkingGarage}
+        />
       );
     case 1:
       return 'What is an ad group anyways?';
