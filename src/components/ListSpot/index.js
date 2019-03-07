@@ -5,6 +5,7 @@ import StepLabel from "@material-ui/core/StepLabel";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import SpotInformation from "./steps/spotInformation";
+import PaymentInformation from "./steps/paymentInformation";
 import styles from "./styles";
 
 class ListSpot extends Component {
@@ -22,7 +23,35 @@ class ListSpot extends Component {
     parkingLot: false,
     homeGarage: false,
     unpavedLot: false,
-    parkingGarage: false
+    parkingGarage: false,
+    paymentPlan: '',
+    paymentInfo: {
+      method: "venmo",
+      data: {
+        phone: ""
+      }
+    },
+    imageData: [
+        {
+            id: 0,
+            img: window.location.origin + '/house-1.png',
+            title: 'Image',
+            author: 'author'
+        },
+        {
+            id: 1,
+            img: window.location.origin + '/house-2.jpg',
+            title: 'Image1',
+            author: 'author1',
+        },
+        {
+            id: 2,
+            img: "",
+            title: "",
+            author: "",
+        }
+    ],
+    instruction: ""
   };
 
   onTextfieldChange = name => event => {
@@ -31,6 +60,18 @@ class ListSpot extends Component {
 
   onCheckboxChange = name => event => {
     this.setState({ [name]: event.target.checked });
+  }
+
+  handleChangePlan = (planValue) => {
+    this.setState({paymentPlan: planValue});
+  }
+
+  handleChangePaymentInfo = (methodInfo) => {
+    this.setState({paymentInfo: methodInfo});
+  }
+
+  handleChangeInstruction = (instruction) => {
+    this.setState({instruction: instruction});
   }
 
   getStepContent = (stepIndex) => {
@@ -58,7 +99,16 @@ class ListSpot extends Component {
     case 1:
       return 'What is an ad group anyways?';
     case 2:
-      return 'This is the bit I really care about!';
+      return(
+        <PaymentInformation 
+        paymentInfo={this.state.paymentInfo} 
+        imageData={this.state.imageData} 
+        paymentPlan={this.state.paymentPlan}
+        handleChangePlan={this.handleChangePlan}
+        handleChangePaymentInfo={this.handleChangePaymentInfo}
+        handleChangeInstruction={this.handleChangeInstruction}
+        />
+      );
     default:
       return 'Unknown stepIndex';
   }
@@ -82,6 +132,7 @@ class ListSpot extends Component {
     });
   };
   render() {
+    console.log(this.state);
     const steps = ["Spot Information", "Scheduling", "Payment Information"];
     const { activeStep } = this.state;
     let { classes } = this.props;
